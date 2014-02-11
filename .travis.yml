@@ -7,6 +7,10 @@ env:
     - GIT_AUTHOR_EMAIL='volaaanja@gmail.com'
     - secure: "rGFDxxSxbnM+a7lMAHWVIYHGfiG7wHx1zoEEC73FsnT+eB+8QOlwtDjUVzHgmhaO2FKXHARLkznEYZL8j4nCVW8faSQ0E9oUr+pHwSdKgcR77TkoWKTfhrZkJzgQBMfrQwIZVHHFQm532r8vr02LmBcHYs+Chzw5UfZxwHZ42WE="
 
+branches:
+  only:
+    - gh-pages-build
+
 rvm: 2.0.0
 before_script:
     - git clone --quiet https://github.com/volanja/test-gh-pages_01.git build
