@@ -5,7 +5,7 @@ env:
     - GIT_COMMITTER_EMAIL='volaaanja@gmail.com'
     - GIT_AUTHOR_NAME='volanja'
     - GIT_AUTHOR_EMAIL='volaaanja@gmail.com'
-    - secure: "Ezdp3yM0+28+jwsdUHgp5UH33K6jPBGmLGl8IojegMbF/xzTevcmVYDq0+2eYYgFVUajUupwVHIcVuOfMNGHGHl6/BXtTpoMghF69U7ZEb3KBKp5n/Gudvbt/z6oc8MxW21+Uob0IEcie3+nx00ddT9jFQAiYrIEFrjS3aUmRIA="
+    - secure: "iHq8Nfc7qeISfMB+/wvH3/v6kay/kCcTAJMSE2VsdA03ZfEUHGnGNcKMYIFbKwRnfnjtwrG8t0GKnM5nK2bGgehrFQSWHE3UjKTJDs8lfwD0BeL3Umdg4/60LvuGp1nNPcU0P25iGa+iuq6L7wiDD1oB0LEE8RJ6KHYr1lx+mDg="
 
 branches:
   only:
