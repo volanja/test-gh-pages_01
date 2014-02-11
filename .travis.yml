@@ -1,0 +1,24 @@
+language: ruby
+env:
+  global:
+    - GIT_COMMITTER_NAME='volanja'
+    - GIT_COMMITTER_EMAIL='volaaanja@gmail.com'
+    - GIT_AUTHOR_NAME='volanja'
+    - GIT_AUTHOR_EMAIL='volaaanja@gmail.com'
+    - secure: "rGFDxxSxbnM+a7lMAHWVIYHGfiG7wHx1zoEEC73FsnT+eB+8QOlwtDjUVzHgmhaO2FKXHARLkznEYZL8j4nCVW8faSQ0E9oUr+pHwSdKgcR77TkoWKTfhrZkJzgQBMfrQwIZVHHFQm532r8vr02LmBcHYs+Chzw5UfZxwHZ42WE="
+
+rvm: 2.0.0
+before_script:
+    - git clone --quiet https://github.com/volanja/test-gh-pages_01.git build
+    - pushd build
+    - git checkout -b gh-pages-build
+    - popd
+script:
+    - bundle exec middleman build
+after_success:
+    - git checkout -b gh-pages
+    - "mv build/* ./"
+    - rm -rf build
+    - git add -A
+    - git commit -m 'Update'
+    - '[ "$TRAVIS_BRANCH" == "gh-pages" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/volanja/test-gh-pages_01.git gh-pages'
