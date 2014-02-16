@@ -12,13 +12,10 @@ branches:
     - gh-pages-build
 
 rvm: 2.0.0
-before_script:
-    - printenv
+script:
     - cd ~/build/volanja
     # /home/travis/build/volanja
     - git clone --quiet -b gh-pages-build https://github.com/volanja/test-gh-pages_01.git gh-pages-build
-script:
-    # /home/travis/build/volanja
     - pushd gh-pages-build
     - bundle exec middleman build
 after_success:
@@ -28,5 +25,6 @@ after_success:
     - rm -rf ./gh-pages/*
     - cp -r ./gh-pages-build/build/* ./gh-pages/
     - cd ./gh-pages
+    # /home/travis/build/volanja/gh-pages
     - git commit -a -m 'Update by travis'
     - '[ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/volanja/test-gh-pages_01.git gh-pages 2> /dev/null' 
