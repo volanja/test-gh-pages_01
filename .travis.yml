@@ -20,16 +20,14 @@ before_script:
 script:
     - bundle exec middleman build
 after_success:
+    - mv build ~/
     - git checkout -b gh-pages origin/gh-pages
     - ls -lta ./
-　　- ls ./ | grep -v -E 'build' | xargs rm -rf
-    - "mv build/* ./"
-    - ls -lta ./
-    - rm -rf build
+    - rm -rf ./
+    - mv ~/build/* ./
     - ls -lta ./
     - git add *
     - git status
     - git commit -m 'Update'
-    - echo $GH_TOKEN
     #- '[ "$TRAVIS_BRANCH" == "gh-pages" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/volanja/test-gh-pages_01.git gh-pages'
     - 'git push --quiet https://$GH_TOKEN@github.com/volanja/test-gh-pages_01.git gh-pages'
