@@ -14,18 +14,17 @@ branches:
 rvm: 2.0.0
 before_script:
     - pwd
-    - git clone --quiet -b gh-pages-build https://github.com/volanja/test-gh-pages_01.git build
+    - git clone --quiet -b gh-pages-build https://github.com/volanja/test-gh-pages_01.git gh-pages-build
 script:
     - pwd
-    - pushd build
+    - pushd gh-pages-build
     - bundle exec middleman build
-    - mv build ../
 after_success:
     - pwd
     - git clone --quiet -b gh-pages https://github.com/volanja/test-gh-pages_01.git gh-pages
     - ls -lta ./
     - rm -rf ./gh-pages/*
-    - mv ./build/* ./gh-pages/
+    - cp -r gh-pages-build/build/* ./gh-pages/
     - ls -lta ./
     - cd ./gh-pages
     - git add *
