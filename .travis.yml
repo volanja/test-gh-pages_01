@@ -20,11 +20,12 @@ script:
     - pushd gh-pages-build
     - bundle exec middleman build
 after_success:
+    - popd
     - pwd
     - git clone --quiet -b gh-pages https://github.com/volanja/test-gh-pages_01.git gh-pages
     - ls -lta ./
     - rm -rf ./gh-pages/*
-    - cp -r gh-pages-build/build/* ./gh-pages/
+    - cp -r ./gh-pages-build/build/* ./gh-pages/
     - ls -lta ./
     - cd ./gh-pages
     - git add *
