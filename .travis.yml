@@ -13,6 +13,7 @@ branches:
 
 rvm: 2.0.0
 before_script:
+    - cd ~/build/volanja
     - pwd
     - git clone --quiet -b gh-pages-build https://github.com/volanja/test-gh-pages_01.git gh-pages-build
 script:
