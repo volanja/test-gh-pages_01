@@ -18,7 +18,7 @@ script:
     - git clone --quiet -b gh-pages-build https://github.com/volanja/test-gh-pages_01.git gh-pages-build
     - pushd gh-pages-build
     - bundle exec middleman build
-    - ls
+    - ls -R
 after_success:
     - popd
     # /home/travis/build/volanja
@@ -26,7 +26,8 @@ after_success:
     - rm -rf ./gh-pages/*
     - cp -r ./gh-pages-build/build/* ./gh-pages/
     - cd ./gh-pages
-    - ls
+    - ls -R
     # /home/travis/build/volanja/gh-pages
+    - git add .
     - git commit -a -m 'Update by travis'
     - '[ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/volanja/test-gh-pages_01.git gh-pages 2> /dev/null' 
