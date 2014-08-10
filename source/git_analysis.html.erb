@@ -1,7 +1,14 @@
 <body class="raphael" id="g.raphael.dmitry.baranovskiy.com">
     <script>
       window.onload = function () {
-        parseGitAnalysis_count("json/chef.json", "Chef (Commit , master)", "holder");
+        parseGitAnalysis_count("json/chef.json", "Chef (Commit , master)", "chef");
+        parseGitAnalysis_count("json/ansible.json", "Ansible (Commit , master)", "ansible");
+        parseGitAnalysis_count("json/riak.json", "Riak (Commit , master)", "riak");
+        parseGitAnalysis_count("json/mongo.json", "Mongo (Commit , master)", "mongo");
+        parseGitAnalysis_count("json/elasticsearch.json", "elasticsearch (Commit , master)", "elasticsearch");
+        parseGitAnalysis_count("json/kibana.json", "Kibana (Commit , master)", "kibana");
+        parseGitAnalysis_count("json/norikra.json", "Norikra (Commit , master)", "norikra");
+        parseGitAnalysis_count("json/jquery.json", "jQuery (Commit , master)", "jquery");
       };
 
     function parseGitAnalysis_count(url, title, id){
@@ -54,5 +61,12 @@
           });
     };
     </script>
-    <div id="holder"></div>
+    <div id="chef"></div>
+    <div id="ansible"></div>
+    <div id="riak"></div>
+    <div id="mongo"></div>
+    <div id="elasticsearch"></div>
+    <div id="riak"></div>
+    <div id="norikra"></div>
+    <div id="jquery"></div>
   </body>
