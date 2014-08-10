@@ -1,24 +1,25 @@
 <body class="raphael" id="g.raphael.dmitry.baranovskiy.com">
     <script>
       window.onload = function () {
-          $.ajax({
-              type: 'GET',
-              url: 'json/chef.json',
-              dataType: 'json',
-              success: function(res){
-                  var count = res.count
-                  var num = new Array()
-                  var domain = new Array()
-                  Object.keys(count).forEach(function (key) {
-                      domain.push("%%.%% ("+ count[key] +") - "+ key)
-                      num.push(count[key])
-                  });
-                  pie(num,domain, "Chef", "holder")
-              }
-          }); //ajax
+        parseGitAnalysis_count("json/chef.json", "Chef (Commit , master)", "holder");
       };
 
-    function parseJSON(res){
+    function parseGitAnalysis_count(url, title, id){
+      $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+        success: function(res){
+            var count = res.count
+            var num = new Array()
+            var domain = new Array()
+            Object.keys(count).forEach(function (key) {
+                domain.push("%%.%% ("+ count[key] +") - "+ key)
+                num.push(count[key])
+            });
+            pie(num,domain, title, id)
+        }
+      }); //ajax
     };
 
     /* @summary create pie chart
